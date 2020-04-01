@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors</title>
+  <meta charset="UTF-8"/>
+</head>
+
+<body>
+  <script>
+
+  function computerPlay()
+  {
+    var randomNum = Math.floor(Math.random() * 3);
+    
+    if (randomNum == 0)
+    {
+      return "rock"
+    }
+    else if (randomNum == 1)
+    {
+      return "paper"
+    }
+    else
+    {
+      return "scissors"
+    }
+
+  }
+
+  function playRound(playerSelection, computerSelection)
+  {
+    var pSelection = playerSelection.toLowerCase();
+    var result = "Win"
+    
+    if (computerSelection == "rock")
+    {
+      if (pSelection == "rock")
+      {
+        result = "Tie"
+      }
+      else if (pSelection == "paper")
+      {
+        result = "Win"
+      }
+      else
+      {
+        result = "Lose"
+      }
+    }
+
+    else if (computerSelection == "paper")
+    {
+      if (pSelection == "rock")
+      {
+        result = "Lose"
+      }
+      else if (pSelection == "paper")
+      {
+        result = "Tie"
+      }
+      else
+      {
+        result = "Win"
+      }
+    }
+
+    else if (computerSelection == "scissors")
+    {
+      if (pSelection == "rock")
+      {
+        result = "Win"
+      }
+      else if (pSelection == "paper")
+      {
+        result = "Tie"
+      }
+      else
+      {
+        result = "Lose"
+      }
+    }
+    
+    else
+    {
+      return "The computer didn't select a valid input. You win by default!"
+    }
+   
+    if (result == "Win")
+    {
+      return ("You Win! " + pSelection + " beats " + computerSelection)
+    }
+    else if (result == "Tie")
+    {
+      return ("You Tie! " + pSelection + " ties with " + computerSelection)
+    }
+    else if (result == "Lose")
+    {
+      return ("You Lose! " + pSelection + " beats " + computerSelection)
+    }
+  }
+
+  const playerSelection = "Rock"
+  const computerSelection = computerPlay()
+  console.log(playRound(playerSelection, computerSelection))
+
+  </script>
+</body>
